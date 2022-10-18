@@ -35,19 +35,15 @@ public class PessoaFisica extends Pessoas{
         double taxa;
         if (getRenda_anual() < 20000) {
             taxa = getRenda_anual() * 0.15;
-            if (getGasto_saude() > 0) {
-                taxa -= getGasto_saude() * 0.5;
-            }
+    
         }
         else if (getRenda_anual() >= 20000) {
             taxa = getRenda_anual() * 0.25;
-            if (getGasto_saude() > 0) {
-                taxa -= getGasto_saude();
-            }
         }
         else {
-            return 0.0;
+            taxa = 0.0;
         }
+        taxa -= getGasto_saude() * 0.5;
         return taxa;
     }
     // METODOS
